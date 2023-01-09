@@ -26,6 +26,4 @@ def room(request, pk):
 
 
 
-
-
   
