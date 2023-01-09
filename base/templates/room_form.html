@@ -5,9 +5,9 @@
 {% block content %}
 
 <div>
-    <form action="">
+    <form action="" method="POST">
         {% csrf_token %}
-
+            {{ form.as_p}}
         <input type="submit" name="" id="" value="Submit">
     </form>
 </div>
