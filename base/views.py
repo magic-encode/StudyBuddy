@@ -23,7 +23,7 @@ def room(request, pk):
     return render(request, 'room.html', context)
 
 
-def createroom(request):
+def create_room(request):
     
     
     context = {}
