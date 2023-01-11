@@ -19,7 +19,8 @@ from .forms import RoomForm
 
 
 def loginPage(request):
-
+    page = 'login'
+    
     if request.user.is_authenticated():
         return redirect('home')
 
@@ -40,13 +41,20 @@ def loginPage(request):
         else:
             messages.error(request, "Username OR Password does not exist")
 
-    context = {}
+    context = {'page': page}
     return render(request, 'login_register.html', context)
 
 
 def logoutPage(request):
     logout(request)
     return redirect('home')
+
+
+def registerPage(request):
+    page = 'register'
+    
+    context = {'page': page}
+    return render(request, 'login_register.html', context)
 
 
 def home(request):
