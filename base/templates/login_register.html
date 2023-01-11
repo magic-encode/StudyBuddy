@@ -23,7 +23,7 @@
     <form action="" method="POST">
         {% csrf_token %}
         
-
+        {{ form.as_p }}
         <input type="submit" value="Register">
     </form>
     <h3>Already have you account?</h3>
