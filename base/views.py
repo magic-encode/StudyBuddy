@@ -1,15 +1,22 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.shortcuts import redirect
+
 from django.http import HttpResponse
 
 from django.db.models import Q
 from django.contrib.auth.models import User
 
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login
+from django.contrib.auth import logout
+from django.contrib.auth import authenticate
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 from django.contrib import messages
-# Create your views here.
-from .models import Room, Topic
+
+from .models import Room
+from .models import Topic
+
 from .forms import RoomForm
 # rooms = [
 #     {'id': 1, 'name': 'Lets learn python!'},
@@ -21,7 +28,7 @@ from .forms import RoomForm
 def loginPage(request):
     page = 'login'
     
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('home')
 
     if request.method == 'POST':
