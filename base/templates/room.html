@@ -22,7 +22,7 @@
 
             {% for message in room_messages %}
             <div>
-                <a href=""></a>
+                <a href="{% url 'delete-message' %}">Delete</a>
                 <small>@{{message.user}} {{message.date|timesince}} ago</small>
                 <p>{{message.body}}</p>
                 <hr>
