@@ -33,6 +33,9 @@ class Message(models.Model):
     updated = models.DateTimeField(auto_now=True)
     date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-updated', '-date']
+    
     def __str__(self):
         return self.body[0:20]
 
