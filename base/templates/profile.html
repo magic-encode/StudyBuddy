@@ -1,15 +1,23 @@
-<div>
-    {% for room in rooms %}
+
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <h2>{{user.username}}</h2>
     <div>
-        {% if request.user == room.host %}
-        <a href="{% url 'update_room' room.id %}">Edit</a>
-        <a href="{% url 'delete_room' room.id %}">Delete</a>
-        {% endif %}
-        <span>@{{room.host.username}}</span>
-        <h5>{{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a></h5>
-            <h3>{{room.topic}} </h3>
-            <hr>
+        <div>
+
+        </div>
+        <div>
+            {% include 'feed_component.html' %}
+        </div>
+        <div>
+
+        </div>
     </div>
 
-    {% endfor %}
-</div>
+{% endblock %}
+
+
