@@ -1,16 +1,16 @@
 {% comment %} <div>
-    {% for room in rooms %}
+    
     <div>
         {% if request.user == room.host %}
             <a href="{% url 'update_room' room.id %}">Edit</a>
             <a href="{% url 'delete_room' room.id %}">Delete</a>
         {% endif %}
-        <a href="{% url 'profile' room.host.id %}">@{{room.host.username}}</a>
+        <a href="{% url 'profile' room.host.id %}">@</a>
         <h5>{{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a>
         <h3>{{room.topic}} </h3>
         <hr>
     </div>
-    {% endfor %}
+    
 </div> {% endcomment %}
 
 <div class="roomList">
@@ -40,7 +40,7 @@
     <div class="roomList__header">
       <div>
         <h2>Study Room</h2>
-        <p>7,439 Rooms available</p>
+        <p>{{room_count}} Rooms available</p>
       </div>
       <a class="btn btn--main" href="{% url 'create_room' %}">
         <svg
@@ -57,24 +57,23 @@
         Create Room
       </a>
     </div>
+    {% for room in rooms %}
     <div class="roomListRoom">
       <div class="roomListRoom__header">
-        <a href="profile.html" class="roomListRoom__author">
+        <a href="{% url 'profile' room.host.id %}" class="roomListRoom__author">
           <div class="avatar avatar--small">
             <img src="https://randomuser.me/api/portraits/women/11.jpg" />
           </div>
-          <span>@sulamita_ivy</span>
+          <span>@{{room.host.username}}</span>
         </a>
         <div class="roomListRoom__actions">
-          <span>5 days ago</span>
+          <span>{{room}}</span>
         </div>
       </div>
       <div class="roomListRoom__content">
-        <a href="room.html">JavaScript made Simple</a>
+        <a href="{% url 'room' room.id %}">{{room.name}}</a>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-          ducimus harum dolorem, obcaecati mollitia omnis quasi aut
-          consequuntur enim itaque labore.
+          {{room.description}}
         </p>
       </div>
       <div class="roomListRoom__meta">
@@ -102,8 +101,8 @@
           </svg>
           5.3k Joined
         </a>
-        <p class="roomListRoom__topic">Python</p>
+        <p class="roomListRoom__topic">{{room.topic}}</p>
       </div>
     </div>
-    
+    {% endfor %}
   </div>
