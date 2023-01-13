@@ -17,7 +17,7 @@
 
 <header class="header header--loggedIn">
    <div class="container">
-      <a href="/" class="header__logo">
+      <a href="{% url 'home' %}" class="header__logo">
          <img src="{% static 'assets/logo.svg' %}" />
          <h1>StudyBuddy</h1>
       </a>
@@ -33,12 +33,13 @@
          </label>
       </form>
       <nav class="header__menu">
+         {% if request.user.is_not_authenticated %}
          <!-- Not Logged In -->
-         <!-- <a href="/login.html">
-             <img src="./assets/avatar.svg" />
+         <a href="{% url 'login' %}">
+             <img src="/static/assets/avatar.svg" />
              <p>Login</p>
-           </a> -->
-
+         </a>
+         {% else %}
          <!-- Logged In -->
 
          <div class="header__user">
@@ -46,7 +47,7 @@
                <div class="avatar avatar--medium active">
                   <img src="https://randomuser.me/api/portraits/men/37.jpg" />
                </div>
-               <p>John Doe <span>@john_doe</span></p>
+               <p>{{user.first_name}} <span>@{{user.username}}</span></p>
             </a>
             <button class="dropdown-button">
                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
@@ -57,7 +58,8 @@
          </div>
 
          <div class="dropdown-menu">
-            <a href="settings.html" class="dropdown-link"><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+            <a href="settings.html" class="dropdown-link">
+               <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                   width="32" height="32" viewBox="0 0 32 32">
                   <title>tools</title>
                   <path
@@ -65,7 +67,8 @@
                   </path>
                </svg>
                Settings</a>
-            <a href="{% url 'login' %}" class="dropdown-link"><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+            <a href="{% url 'logout' %}" class="dropdown-link">
+               <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                   width="32" height="32" viewBox="0 0 32 32">
                   <title>sign-out</title>
                   <path
@@ -78,6 +81,7 @@
                Logout
             </a>
          </div>
+         {% endif %}
       </nav>
    </div>
 </header>
