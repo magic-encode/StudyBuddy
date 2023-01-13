@@ -1,13 +1,4 @@
-<h3>Browse Topics</h3>
-<hr />
-<div>
-  <a href="{% url 'home' %}">All </a>
-</div>
-{% for topic in topics %}
-<div>
-  <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}} </a>
-</div>
-{% endfor %}
+
 
 <div class="topics">
   <div class="topics__header">
@@ -17,9 +8,11 @@
     <li>
       <a href="/" class="active">All <span>{{topic_count}}</span></a>
     </li>
+    {% for topic in topics %}
     <li>
       <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}} </a>
     </li>
+    {% endfor %}
   </ul>
   <a class="btn btn--link" href="topics.html">
     More
