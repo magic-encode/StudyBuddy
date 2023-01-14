@@ -103,7 +103,8 @@ def profile(request, pk):
     rooms = user.room_set.all()
     room_messages = user.message_set.all()
     topics = Topic.objects.all()
-    context = {'user': user, 'rooms': rooms, 'room_messages': room_messages, 'topics': topics}
+    count_topics = topics.count()
+    context = {'user': user, 'rooms': rooms, 'room_messages': room_messages, 'topics': topics, 'count_topics': count_topics,}
     return render(request, 'profile.html', context)
 
 
@@ -217,6 +218,7 @@ def topicPage(request):
 
 
 def activityPage(request):
+    room_messages = Message.objects.all()
     
-    context = {}
+    context = {'room_messages': room_messages}
     return render(request, 'activity.html', context)

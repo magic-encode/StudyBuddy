@@ -50,7 +50,7 @@
       <div class="activities__boxContent">
         <p>
           replied to post 
-          <a href="room.html">“{{message.room}}”
+          <a href="{% url 'room' message.room.id %}">“{{message.room}}”
           </a>
         </p>
         <div class="activities__boxRoomContent">
