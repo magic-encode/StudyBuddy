@@ -26,7 +26,7 @@
                     {% for field in form %}
                     <div class="form__group">
                         <label for="profile_pic">{{field.label}}</label>
-                        <input id="profile_pic" name="profile_pic" type="file" />
+                        {{field}}
                     </div>
                     {% endfor %}
 
