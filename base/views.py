@@ -204,4 +204,7 @@ def update_user(request):
     return render(request, 'edit-user.html', context)
     
     
- 
+def topicPage(request):
+    
+    context = {}
+    return render(request, 'topic.html', context)
