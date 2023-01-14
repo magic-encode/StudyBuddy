@@ -6,7 +6,7 @@
   </div>
   <ul class="topics__list">
     <li>
-      <a href="/" class="active">All <span>{{topics.count}}</span></a>
+      <a href="/" class="active">All <span>{{count_topics}}</span></a>
     </li>
     {% for topic in topics %}
     <li>
@@ -14,7 +14,7 @@
     </li>
     {% endfor %}
   </ul>
-  <a class="btn btn--link" href="topics.html">
+  <a class="btn btn--link" href="{% url 'topics_page' %}">
     More
     <svg
       version="1.1" 
