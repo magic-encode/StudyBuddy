@@ -190,7 +190,7 @@ def deleteMessage(request, pk):
 
 
 @login_required(login_url='login')
-def update_user(request,pk):
+def update_user(request):
     
     context = {}
     return render(request, 'edit-user.html', context)
