@@ -189,5 +189,9 @@ def deleteMessage(request, pk):
     return render(request, 'delete.html', {'obj': message})
 
 
-
+@login_required(login_url='login')
+def update_user(request,pk):
+    return render(request, '')
+    
+    
  
