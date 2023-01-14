@@ -205,6 +205,7 @@ def update_user(request):
     
     
 def topicPage(request):
+    topic = Topic.objects.all()
     
-    context = {}
-    return render(request, 'topic.html', context)
+    context = {'topics': topic, }
+    return render(request, 'topics.html', context)
