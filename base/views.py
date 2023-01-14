@@ -17,7 +17,7 @@ from django.contrib import messages
 from .models import Room
 from .models import Topic, Message
 
-from .forms import RoomForm
+from .forms import RoomForm, UserForm
 # rooms = [
 #     {'id': 1, 'name': 'Lets learn python!'},
 #     {'id': 2, 'name': 'Design with me'},
@@ -191,8 +191,10 @@ def deleteMessage(request, pk):
 
 @login_required(login_url='login')
 def update_user(request):
+    user = request.user
+    form = UserForm(instance=user)
     
-    context = {}
+    context = {'form': form}
     return render(request, 'edit-user.html', context)
     
     
