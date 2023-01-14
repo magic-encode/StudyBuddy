@@ -214,3 +214,9 @@ def topicPage(request):
     
     context = {'topics': topic, }
     return render(request, 'topics.html', context)
+
+
+def activityPage(request):
+    
+    context = {}
+    return render(request, 'activity.html', context)
