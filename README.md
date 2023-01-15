@@ -23,6 +23,6 @@ Live website - https://study-chatuz.herokuapp.com/ <hr><br>
 # Completed with
 * Django 
 * Database Design and Models with Postgresql
-* Deployment to heroku
+* Deployment to AWS
 
 
