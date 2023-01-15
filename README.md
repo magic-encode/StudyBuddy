@@ -2,7 +2,7 @@
 Sourcode and Resources for Study-Chat <br>
 Live website - https://study-chatuz.herokuapp.com/ <hr><br>
 #Home page
-<img src="static/home.jpg">
+<img src="static/homes.jpg">
 
 
 # Installation
