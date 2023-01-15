@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     "corsheaders",
 ]
 
-
+AUTH_USER_MODEL = 'base.User'
 
 
 MIDDLEWARE = [
