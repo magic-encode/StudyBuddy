@@ -1,7 +1,8 @@
 # Study-Chat | Simple Django website 
 Sourcode and Resources for Study-Chat <br>
 Live website - https://study-chatuz.herokuapp.com/ <hr><br>
-<!-- <img src="./docs/image-site.png"> -->
+#Home page
+<img src="/static/images/home.jpg">
 
 
 # Installation
