@@ -1,29 +1,24 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
-
-from django.http import HttpResponse
-
-from django.db.models import Q
-
-from django.contrib.auth import login
-from django.contrib.auth import logout
-from django.contrib.auth import authenticate
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
-
-from django.contrib import messages
-
 from .models import User
 from .models import Room
 from .models import Topic
 from .models import Message
 
-from .forms import RoomForm, UserForm
-# rooms = [
-#     {'id': 1, 'name': 'Lets learn python!'},
-#     {'id': 2, 'name': 'Design with me'},
-#     {'id': 3, 'name': 'Frontend developers'},
-# ]
+from .forms import RoomForm
+from .forms import UserForm
+from .forms import MyUserCreationForm
+
+from django.db.models import Q
+
+from django.shortcuts import render
+from django.shortcuts import redirect
+
+from django.http import HttpResponse
+
+from django.contrib import messages
+from django.contrib.auth import login
+from django.contrib.auth import logout
+from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 
 
 def loginPage(request):
@@ -59,9 +54,9 @@ def logoutPage(request):
 
 
 def registerPage(request):
-    form = UserCreationForm()
+    form = MyUserCreationForm()
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
