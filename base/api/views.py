@@ -32,3 +32,6 @@ def getRoom(request, pk):
     
     return Response(serializer.data)
 
+
+
+
