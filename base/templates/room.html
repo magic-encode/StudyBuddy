@@ -117,21 +117,7 @@
           </a>
         </div>
         {% endif %}
-        <!-- <button class="action-button" data-id="120" data-delete-url="https://randomuser.me/api/3324923"
-          data-edit-url="profile.html">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-            <title>ellipsis-horizontal</title>
-            <path
-              d="M16 7.843c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 1.98c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z">
-            </path>
-            <path
-              d="M16 19.908c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 14.046c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z">
-            </path>
-            <path
-              d="M16 31.974c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 26.111c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z">
-            </path>
-          </svg>
-        </button> -->
+       
       </div>
       <div class="room__box scroll">
         <div class="room__header scroll">
@@ -143,7 +129,7 @@
             <p>Hosted By</p>
             <a href="{% url 'profile' room.host.id %}" class="room__author">
               <div class="avatar avatar--small">
-                <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                <img src="{{room.host.avator.url}}" />
               </div>
               <span>@{{room.host.username}}</span>
             </a>
@@ -162,7 +148,7 @@
                   <a href="#" class="thread__authorInfo">
                     <div class="avatar avatar--small">
                       <img
-                        src="https://randomuser.me/api/portraits/men/37.jpg"
+                        src="{{message.user.avator.url}}"
                       />
                     </div>
                     <span>@{{message.user}}</span>
@@ -215,7 +201,7 @@
         {% for user in participants %}
         <a href="profile.html" class="participant">
           <div class="avatar avatar--medium">
-            <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+            <img src="{{user.avator.url}}" />
           </div>
           <p>
             {{user.first_name}} {{user.last_name}}

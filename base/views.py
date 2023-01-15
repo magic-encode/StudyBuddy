@@ -4,7 +4,6 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 
 from django.db.models import Q
-from django.contrib.auth.models import User
 
 from django.contrib.auth import login
 from django.contrib.auth import logout
@@ -14,8 +13,10 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib import messages
 
+from .models import User
 from .models import Room
-from .models import Topic, Message
+from .models import Topic
+from .models import Message
 
 from .forms import RoomForm, UserForm
 # rooms = [
@@ -122,7 +123,7 @@ def room(request, pk):
             body=request.POST.get('body'),
         )
         room.participants.add(request.user)
-        return redirect('home')
+        return redirect('room', pk=room.id)
 
     context = {'room': room, 'room_messages': room_messages,
                'participants': participants}
@@ -202,7 +203,7 @@ def update_user(request):
     form = UserForm(instance=user)
 
     if request.method == 'POST':
-        form = UserForm(request.POST, instance=user)
+        form = UserForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
             form.save()
             return redirect('profile', pk=user.id)
