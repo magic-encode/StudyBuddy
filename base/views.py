@@ -50,7 +50,7 @@ def loginPage(request):
 
 def logoutPage(request):
     logout(request)
-    return redirect('home')
+    return redirect('login')
 
 
 def registerPage(request):
@@ -63,7 +63,7 @@ def registerPage(request):
             user.save()
             login(request, user)
 
-            return redirect('home')
+            return redirect('update_user')
         else:
             messages.error(request, 'An error occurred during registration')
 
