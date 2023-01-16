@@ -110,7 +110,7 @@ def room(request, pk):
     room = Room.objects.get(id=pk)
     room_messages = room.message_set.all()
     participants = room.participants.all()
-
+    print(room_messages)
     if request.method == 'POST':
         message = Message.objects.create(
             user=request.user,
