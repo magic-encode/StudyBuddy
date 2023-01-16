@@ -12,12 +12,12 @@ Live website - Soon .... <hr><br>
 
 
 # Installation
-* 1 - clone repo https://github.com/uzdevpython/study-chat.git
+* 1 - clone repo https://github.com/magic-encode/StudyBuddy.git
 * 2 - create a virtual environment and activate
 *  - pip install virtualenv
 *  - virtualenv env
 *  - env\Scripts\activate
-* 3 - cd into project "Study-chat"
+* 3 - cd into project "StudyBuddy"
 * 4 - set your .env file with using .env_example
 * 5 - pip install -r requirements.txt
 * 6 - python manage.py runserver
