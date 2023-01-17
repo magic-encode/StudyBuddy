@@ -22,7 +22,7 @@ jobs:
           DEBUG: ${{ secrets.DEBUG }}
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
-
+          EMAIL_HOST: ${{ secrets.EMAIL_BACKEND }}
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
           EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
           EMAIL_USE_TLS: ${{ secrets.EMAIL_USE_TLS }}
