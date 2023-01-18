@@ -17,7 +17,6 @@ ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1', '0.0.0.0']
 
 
 INSTALLED_APPS = [
-    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,7 +35,9 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     
     "corsheaders.middleware.CorsMiddleware",
+    
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,24 +69,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'studybud.wsgi.application'
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': env.str('POSTGRES_ENGINE'),
-#         'NAME': env.str('POSTGRES_DB'),
-#         'USER': env.str('POSTGRES_USER'),
-#         'PASSWORD': env.str('POSTGRES_PASSWORD'),
-#         'HOST': env.str('POSTGRES_HOST'),
-#         'PORT': 5432,
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': env.str('POSTGRES_ENGINE'),
+        'NAME': env.str('POSTGRES_DB'),
+        'USER': env.str('POSTGRES_USER'),
+        'PASSWORD': env.str('POSTGRES_PASSWORD'),
+        'HOST': env.str('POSTGRES_HOST'),
+        'PORT': 5432,
     }
 }
+
+
 
 
 
