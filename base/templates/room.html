@@ -1,53 +1,6 @@
 {% extends 'main.html' %} 
 {% load static %} 
 {% block content %} 
-{% comment %}
-<div class="room-container">
-  <div>
-    <h1>{{room.name}}</h1>
-
-    <p>{{room.description}}</p>
-
-    <div class="comment-wrapper">
-      <h3>Conversation</h3>
-      <hr />
-
-      
-      <div>
-        {% if request.user == message.user %}
-        <a href="{% url 'delete-message' message.id %}">Delete</a>
-        {% endif %}
-        <small>@{{message.user}} {{message.date|timesince}} ago</small>
-        <p>{{message.body}}</p>
-        <hr />
-      </div>
-     
-    </div>
-
-    {% if request.user.is_authenticated %}
-    <div class="comment-form">
-      <form action="" method="POST">
-        {% csrf_token %}
-        <input
-          type="text"
-          name="body"
-          placeholder="Write your message here.... "
-          id=""
-        />
-      </form>
-    </div>
-    {% endif %}
-  </div>
-  <div>
-    <h3>Participants</h3>
-    <hr />
-
-    <div>
-      <p>@{{user.username}}</p>
-    </div>
-  </div>
-</div>
-{% endcomment %}
 
 <main class="profile-page layout layout--2">
   <div class="container">
