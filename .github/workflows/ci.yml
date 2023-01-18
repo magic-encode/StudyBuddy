@@ -20,10 +20,10 @@ jobs:
           DEBUG: ${{ secrets.DEBUG }}
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
-          EMAIL_HOST: ${{ env.EMAIL_HOST }}
-          EMAIL_USE_TLS: ${{ env.EMAIL_USE_TLS }}
-          EMAIL_HOST_USER: ${{ env.EMAIL_HOST_USER }}
-          EMAIL_HOST_PASSWORD: ${{ env.EMAIL_HOST_PASSWORD }}
+          # EMAIL_HOST: ${{ env.EMAIL_HOST }}
+          # EMAIL_USE_TLS: ${{ env.EMAIL_USE_TLS }}
+          # EMAIL_HOST_USER: ${{ env.EMAIL_HOST_USER }}
+          # EMAIL_HOST_PASSWORD: ${{ env.EMAIL_HOST_PASSWORD }}
 
           POSTGRES_ENGINE: ${{ env.POSTGRES_ENGINE }}
           POSTGRES_DB: ${{ env.POSTGRES_DB }}
