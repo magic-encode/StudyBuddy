@@ -68,14 +68,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'studybud.wsgi.application'
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': env.str('POSTGRES_ENGINE'),
+#         'NAME': env.str('POSTGRES_DB'),
+#         'USER': env.str('POSTGRES_USER'),
+#         'PASSWORD': env.str('POSTGRES_PASSWORD'),
+#         'HOST': env.str('POSTGRES_HOST'),
+#         'PORT': 5432,
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': env.str('POSTGRES_ENGINE'),
-        'NAME': env.str('POSTGRES_DB'),
-        'USER': env.str('POSTGRES_USER'),
-        'PASSWORD': env.str('POSTGRES_PASSWORD'),
-        'HOST': env.str('POSTGRES_HOST'),
-        'PORT': 5432,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -118,14 +126,13 @@ EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
 
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
+MEDIA_ROOT = BASE_DIR / 'static/images'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
