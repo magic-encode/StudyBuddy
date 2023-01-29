@@ -3,34 +3,38 @@
 {% block content %}
 
 <style>
-    input[type='text'],
-    input[type='email'],
-    input[type='password'] {
-        min-width: 24rem;
-        width: 100%;
-        padding: 1.2rem 1.5rem;
-        border-radius: 0.5rem;
-        border: 2px solid var(--color-light);
-        transition: all 0.3s ease-in-out;
-        background-color: var(--color-bg);
+    .sulo1{
+        margin-top: 15px;
+        display: grid;
+        
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
     }
-
-    input[type='text']:focus,
-    input[type='email']:focus,
-    input[type='password']:focus,
-    input[type='text']:active,
-    input[type='email']:active,
-    input[type='password']:active {
-        outline: none;
-        border: 2px solid var(--color-main);
+    .sulo2{
+        display: grid;
+        font-size: 25px;
     }
+    input{
+        display: block;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        color: azure;
+        width: 350px;
+    }
+    ul
+    {
+        display: none;
+        color: blue;
+    }
+   
 </style>
 
 
 <!-- Main Section -->
 <main class="formPage my-xl">
-    <div class="content-box">
-        <div class="formWrapper">
+    <div class="sulo1">
+        <div class="sulo2">
             <h3>Enter new password</h3>
 
             <p>Please enter your new password twice so we can verify you typed it in correctly.</p>
@@ -40,7 +44,7 @@
             <form class="form" method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
-                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+                <button class="btn btn--main" style="font-size: medium; margin-left: 20px" type="submit" >Submit</button>
             </form>
         </div>
     </div>
