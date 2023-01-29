@@ -91,6 +91,11 @@
             {{room.description}}
           </div>
           <span class="room__topics">{{room.topic}}</span>
+          <form action="{% url 'like' room.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" name="like_id" value="{{room.id}}"   style="background-color: rgb(248, 169, 73);color:azure; border-radius: 7px; border: none; font-size: 18px; font-weight: 400;margin-right: 15px; padding:5px">Like+</button>
+          </form>
+        {{total_likes}}
         </div>
         <div class="room__conversation">
           <div class="threads scroll">

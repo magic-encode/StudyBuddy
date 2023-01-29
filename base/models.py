@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     name = models.CharField(max_length=200, null=True)
-    email = models.EmailField(unique=True)
+
     bio = models.TextField(null=True)
     
     avator = models.ImageField(null=True, default='avatar.svg', upload_to='media/')
@@ -30,6 +30,10 @@ class Room(models.Model):
     description = models.TextField()
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(User, related_name='like_post')
+    
+    def total_likes(self):
+        return self.likes.count()
 
     class Meta:
         ordering = ['-updated', '-created']
