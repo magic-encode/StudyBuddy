@@ -114,12 +114,12 @@ def profile(request, pk):
 @login_required(login_url='login')
 def like(request, pk):
     like = get_object_or_404(Room, id=request.POST.get('like_id'))
-    
+
     if like.likes.filter(id=request.user.id).exists():
         like.likes.remove(request.user)
     else:
         like.likes.add(request.user)
-    
+
     return HttpResponseRedirect(reverse('room', args=[str(pk)]))
 
 
@@ -127,16 +127,16 @@ def room(request, pk, **context):
     room = Room.objects.get(id=pk)
     room_messages = room.message_set.all()
     participants = room.participants.all()
-    
+
     stuff = get_object_or_404(Room, id=pk)
     total_likes = stuff.total_likes()
-    
+
     likes_connected = get_object_or_404(Room, id=pk)
     liked = False
     if likes_connected.likes.filter(id=request.user.id).exists():
         liked = True
     context['post_is_liked'] = liked
-    
+
     if request.method == 'POST':
         message = Message.objects.create(
             user=request.user,
@@ -146,16 +146,13 @@ def room(request, pk, **context):
         room.participants.add(request.user)
         return redirect('room', pk=room.id)
 
-    context = {'room': room, 
+    context = {'room': room,
                'room_messages': room_messages,
                'participants': participants,
                'total_likes': total_likes,
-               
+               'liked': liked,
                }
     return render(request, 'room.html', context)
-
-
-
 
 
 @login_required(login_url='login')

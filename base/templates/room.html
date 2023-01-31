@@ -72,6 +72,7 @@
         {% endif %}
        
       </div>
+
       <div class="room__box scroll">
         <div class="room__header scroll">
           <div class="room__info">
@@ -91,12 +92,19 @@
             {{room.description}}
           </div>
           <span class="room__topics">{{room.topic}}</span>
+
           <form action="{% url 'like' room.id %}" method="POST">
             {% csrf_token %}
-            <button type="submit" name="like_id" value="{{room.id}}"   style="background-color: rgb(248, 169, 73);color:azure; border-radius: 7px; border: none; font-size: 18px; font-weight: 400;margin-right: 15px; padding:5px">Like+</button>
+            {% if liked %}
+            <button type="submit" name="like_id" value="{{room.id}}"   style="background-color: red;color:azure; border-radius: 7px; border: none; font-size: 18px; font-weight: 400;margin-right: 15px; padding:5px">Like+</button>
+            {% else %}
+            <button type="submit" name="like_id" value="{{room.id}}"   style="background-color: green;color:azure; border-radius: 7px; border: none; font-size: 18px; font-weight: 400;margin-right: 15px; padding:5px">Like+</button>
+            {% endif %}
           </form>
-        {{total_likes}}
+          <span style="font-size:25px;">{{total_likes}}</span>
+
         </div>
+
         <div class="room__conversation">
           <div class="threads scroll">
             {% for message in room_messages %}
