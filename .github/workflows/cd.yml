@@ -43,7 +43,7 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: web-king.uz
-        username: ubuntu
+        username: /home/ubuntu
         key: ${{ secrets.KEY }}
         script: |
           echo "Hello, world!"
