@@ -42,8 +42,8 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: web-king.uz
+        username: ubuntu
         key: ${{ secrets.KEY }}
         script: |
           cd StudyBuddy
