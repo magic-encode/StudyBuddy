@@ -9,7 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      DJANGO_SETTINGS_MODULEL: studybud.settings
+      DJANGO_SETTINGS_MODULE: studybud.settings
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -43,7 +43,7 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: web-king.uz
-        username: /home/ubuntu
+        username: ubuntu
         key: ${{ secrets.KEY }}
         script: |
           echo "Hello, world!"
