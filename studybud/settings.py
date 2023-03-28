@@ -11,9 +11,9 @@ env.read_env()
 
 SECRET_KEY = env.str("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['13.49.134.110', 'localhost', '0.0.0.0', 'web-king.uz', 'www.web-king.uz']
 
 
 INSTALLED_APPS = [
@@ -80,12 +80,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 
 
